@@ -1,5 +1,6 @@
 package org.example;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -12,8 +13,11 @@ import java.util.List;
 @EqualsAndHashCode()
 @NoArgsConstructor
 public class OrderItemsState {
+    @Schema(description = "Rendelések listája")
     private List<OrderItem> items = new ArrayList<>();
+    @Schema(description = "Asztal azonosító")
     private String tableId;
+    @Schema(description = "Rendelés állapota")
     private OrderStateEnum state;
 
     @Builder

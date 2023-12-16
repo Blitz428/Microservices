@@ -1,11 +1,11 @@
 package org.example;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-public class OrderItemStore {
+import org.springframework.stereotype.Service;
+@Service
+public class OrderItemStoreRepository {
     private static final Map<String,List<OrderItemsState>> ordersrepository = new HashMap<>();
 
     public void add(String tableId, List<OrderItemsState> orders)
@@ -32,7 +32,7 @@ public class OrderItemStore {
         for (OrderItemsState order:ordersrepository.get(tableId)
         ) {
             order.getItems().removeIf(item -> item.getOrderId().equals(orderId));
-            ;
+
 
         }
     }
