@@ -14,7 +14,7 @@ OrderItem orderItem = new OrderItem();
 
 @Autowired
 List<OrderItem> orderItems = new ArrayList<>();
-    public void createOrder(String orderId,String foodId, int quantity, String note, boolean note4all, String groupName){
+    public void createItem(String orderId,String foodId, int quantity, String note, boolean note4all, String groupName){
         orderItem.setOrderId(orderId);
         orderItem.setFoodId(foodId);
         orderItem.setQuantity(quantity);
@@ -24,11 +24,11 @@ List<OrderItem> orderItems = new ArrayList<>();
         orderItems.add(orderItem);
     }
 
-    public List<OrderItem> getOrders(){
+    public List<OrderItem> getItems(){
         return  orderItems;
     }
 
-    public OrderItem getOne(String orderId){
+    public OrderItem getOneItem(String orderId){
 
         if (!orderItems.isEmpty())
         {
@@ -44,7 +44,7 @@ List<OrderItem> orderItems = new ArrayList<>();
         return null;
     }
 
-    public OrderItem update(String orderId,String foodId, int quantity, String note, boolean note4all, String groupName)
+    public OrderItem updateItem(String orderId,String foodId, int quantity, String note, boolean note4all, String groupName)
     {
         if (!orderItems.isEmpty())
         {
@@ -65,17 +65,11 @@ List<OrderItem> orderItems = new ArrayList<>();
         return null;
     }
 
-    public List<OrderItem>deleteOrder(String orderId)
+    public List<OrderItem>deleteItem(String orderId)
     {
         if (!orderItems.isEmpty())
         {
-            for (OrderItem item: orderItems
-            ) {
-                if (item.getOrderId().equals(orderId)){
-
-                   orderItems.remove(item);
-                }
-            }
+            orderItems.removeIf(item -> item.getOrderId().equals(orderId));
 
         }
 
