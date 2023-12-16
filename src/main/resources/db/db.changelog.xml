@@ -1,0 +1,26 @@
+<db:databaseChangeLog xmlns:db="http://www.liquibase.org/xml/ns/dbchangelog"
+                      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                      xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd">
+    <db:changeSet id="create-table-from-object" author="szegedi">
+        <db:createTable tableName="rtable">
+            <db:column name="id" type="BIGINT"></db:column>
+            <db:column name="name" type="varchar(255)"  ></db:column>
+            <db:column name="available" type="boolean"  ></db:column>
+            <db:column name="capacity" type="int"  ></db:column>
+            <db:column name="create" type="timestamp"  ></db:column>
+            <db:column name="lastmodify" type="timestamp"  ></db:column>
+        </db:createTable>
+        <db:createIndex tableName="rtable" indexName="rtable-name">
+            <db:column name="name"></db:column>
+        </db:createIndex>
+        <db:createIndex tableName="rtable" indexName="table-id">
+            <db:column name="id"></db:column>
+        </db:createIndex>
+
+
+    </db:changeSet>
+
+
+
+
+</db:databaseChangeLog>
